@@ -122,7 +122,7 @@ function getProjects(extraRoots = []) {
       if (!byCwd.has(key)) byCwd.set(key, { cwd: info.cwd, sessions: [] });
       byCwd.get(key).sessions.push({
         id: f.slice(0, -'.jsonl'.length),
-        title: info.title || '(başlıksız)',
+        title: info.title || '', // boşsa bot dile göre "(untitled)" gösterir
         mtimeMs: info.mtimeMs,
       });
     }

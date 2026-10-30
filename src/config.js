@@ -17,6 +17,7 @@ const DEFAULTS = {
   projectsPerPage: 10,
   sessionsPerPage: 8,
   favorites: [], // proje klasör yolları; listede en üstte gösterilir
+  language: 'en', // bot dili: 'en' | 'tr' (bot içinden /language ile de değişir)
 };
 
 function load() {

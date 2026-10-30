@@ -42,11 +42,11 @@ It can also list the VS Code windows that are open, close or restart a single pr
    npm run install-vscode-helper
    ```
 
-When the service starts, the bot sends you a "🟢 hazır" ("ready") message.
+When the service starts, the bot sends you a "🟢 ready" message.
 
 ## Bot commands
 
-Commands are in English; the bot's messages are currently in Turkish. A persistent menu at the bottom of the chat covers the common actions; type `?` or `/help` for help.
+The bot speaks **English** and **Turkish**. Switch any time with `/language` (or set `"language"` in `config.json`). A persistent menu at the bottom of the chat covers the common actions; type `?` or `/help` for help.
 
 | Command | What it does |
 |---|---|
@@ -61,6 +61,7 @@ Commands are in English; the bot's messages are currently in Turkish. A persiste
 | `/git <project>` | Branch, uncommitted changes, last commits |
 | `/screen` | Screenshot of the PC screen |
 | `/status` | Service status |
+| `/language` | Switch between English and Turkish |
 
 ## How it works
 
@@ -76,6 +77,7 @@ src/sessions.js     project / session discovery and search
 src/launcher.js     opens VS Code + Claude Code, takes screenshots
 src/windows.js      lists / closes VS Code windows (Win32)
 src/git.js          read-only git summary
+src/i18n.js         bot texts (English, Turkish) — add a language here
 vscode-helper/      optional VS Code extension: open sessions in the Claude sidebar
 scripts/            install / uninstall / restart the service
 ```

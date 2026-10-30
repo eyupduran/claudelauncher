@@ -1,8 +1,11 @@
 {
   "telegramToken": "PASTE_YOUR_BOTFATHER_TOKEN_HERE",
   "allowedUserIds": [],
+  "language": "en",
   "codePath": "",
-  "projectRoots": ["C:\\Users\\YOUR_NAME\\Desktop"],
+  "projectRoots": [
+    "C:\\Users\\YOUR_NAME\\Desktop"
+  ],
   "warmDelayMs": 4000,
   "coldDelayMs": 8000,
   "projectsPerPage": 10,

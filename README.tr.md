@@ -46,7 +46,7 @@ Servis başlayınca bot "🟢 hazır" mesajı gönderir.
 
 ## Komutlar
 
-Altta kalıcı bir menü var. Yardım için `?` ya da `/help` yaz.
+Bot **İngilizce** ve **Türkçe** konuşur; `/language` ile istediğin zaman değiştirebilirsin (ya da `config.json` içinde `"language": "tr"`). Altta kalıcı bir menü var. Yardım için `?` ya da `/help` yaz.
 
 | Komut | Ne yapar |
 |---|---|
@@ -61,6 +61,7 @@ Altta kalıcı bir menü var. Yardım için `?` ya da `/help` yaz.
 | `/git <proje>` | Branch, kaydedilmemiş değişiklikler, son commitler |
 | `/screen` | Ekran görüntüsü |
 | `/status` | Servis durumu |
+| `/language` | İngilizce / Türkçe arasında geçiş |
 
 ## Güvenlik
 
