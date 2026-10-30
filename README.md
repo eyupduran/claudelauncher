@@ -66,7 +66,7 @@ The bot speaks **English** and **Turkish**. Switch any time with `/language` (or
 ## How it works
 
 - **Projects and sessions** come from Claude Code's history in `~/.claude/projects/<project>/<session>.jsonl`, plus every folder under `projectRoots` (so projects without history show up too). Session files can be hundreds of MB, so only the head and tail of each file are read.
-- **Opening** runs `Code.exe <project>`, waits for the window to get focus, then sends the Claude Code link `vscode://anthropic.claude-code/open?session=<id>` (or the helper extension's link to open it in the sidebar).
+- **Opening** runs `Code.exe <project>`, waits for the window to get focus, then sends the Claude Code link `vscode://anthropic.claude-code/open?session=<id>` (or the helper extension's link to open it in the sidebar). If the project is already open, the session opens in a new tab instead, so the session already running in the sidebar is left alone.
 - **Closing a single project** finds its window via Win32 `EnumWindows` and sends `WM_CLOSE`. If there are unsaved files, VS Code asks and the window stays open; the bot tells you.
 - **The service** is a Windows Task Scheduler task that runs `node src/main.js` hidden at sign-in. A small supervisor restarts the bot if it crashes.
 

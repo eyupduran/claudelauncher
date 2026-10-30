@@ -69,6 +69,7 @@ const STRINGS = {
     opening: (name, label) => `⏳ Opening <b>${name}</b>…\n${label}`,
     opened: (name, fresh, label) => `✅ <b>${name}</b> opened in VS Code${fresh ? ' (VS Code was started)' : ''}.\n${label}\n\n` +
       'It will show up in the Claude app as a Remote Control session in a few seconds. Large sessions can take 10–20 s.',
+    openedInTab: '\n\n📑 The project was already open, so this session opened in a new tab. The session in the sidebar keeps running.',
     showScreen: '📸 Show screen', screenButton: '📸 Screen', reopen: '🔄 Reopen',
     openFailed: (e) => `❌ Could not open: ${e}`,
     closing: (name) => `⏳ Closing <b>${name}</b>…`,
@@ -176,6 +177,7 @@ const STRINGS = {
     opening: (name, label) => `⏳ <b>${name}</b> açılıyor…\n${label}`,
     opened: (name, fresh, label) => `✅ <b>${name}</b> VS Code'da açıldı${fresh ? ' (VS Code yeni başlatıldı)' : ''}.\n${label}\n\n` +
       'Birkaç saniye içinde Claude uygulamasında Remote Control oturumu olarak görünecek. Büyük oturumlar 10–20 sn sürebilir.',
+    openedInTab: '\n\n📑 Proje zaten açıktı, bu oturum yeni sekmede açıldı. Sağ paneldeki oturum çalışmaya devam ediyor.',
     showScreen: '📸 Ekranı göster', screenButton: '📸 Ekran', reopen: '🔄 Tekrar aç',
     openFailed: (e) => `❌ Açılamadı: ${e}`,
     closing: (name) => `⏳ <b>${name}</b> kapatılıyor…`,

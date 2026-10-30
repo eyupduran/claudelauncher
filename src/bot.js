@@ -244,16 +244,20 @@ async function doOpen(chatId, project, session, statusMsg) {
   const status = statusMsg || await tg.send(chatId, L.opening(name, label));
   if (statusMsg) await tg.edit(chatId, status.message_id, L.opening(name, label));
   try {
-    log(`Açılıyor: ${project.cwd} oturum=${session ? session.id : 'yeni'}`);
+    // Proje zaten açıksa sağ panelde çalışan bir oturum olabilir; onu değiştirmemek için yeni sekmede aç.
+    const alreadyOpen = (await windows.windowsOf(project, projects()).catch(() => [])).length > 0;
+    log(`Açılıyor: ${project.cwd} oturum=${session ? session.id : 'yeni'} açıktı=${alreadyOpen}`);
     const r = await launcher.openProject({
       cwd: project.cwd,
       sessionId: session && session.id,
       codePath: cfg.codePath,
       warmDelayMs: cfg.warmDelayMs,
       coldDelayMs: cfg.coldDelayMs,
+      inTab: alreadyOpen,
     });
     lastAction = { at: Date.now(), name: project.name, what: 'opened' };
-    await tg.edit(chatId, status.message_id, L.opened(name, !r.wasRunning, label),
+    const where = alreadyOpen ? L.openedInTab : '';
+    await tg.edit(chatId, status.message_id, L.opened(name, !r.wasRunning, label) + where,
       [[{ text: L.showScreen, callback_data: 'x' }, { text: L.close, callback_data: `k:${project.hash}` }]]);
   } catch (e) {
     log('Açma hatası:', e);
