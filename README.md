@@ -100,6 +100,7 @@ scripts/            install / uninstall / restart the service
 
 ## Notes
 
+- The sidebar helper adds itself to VS Code's `extensions.confirmedUriHandlerExtensionIds` setting, so VS Code doesn't ask "Allow 'ClaudeLauncher Helper' to open this URI?" every time (nobody is at the PC to click it).
 - The sidebar helper uses an internal Claude Code extension command. If a Claude Code update changes it, the helper falls back to opening the session in an editor tab.
 - Large sessions can take 10–20 seconds to load in VS Code.
 

@@ -3,9 +3,9 @@
   "displayName": "ClaudeLauncher Helper",
   "description": "Opens Claude Code sessions launched by ClaudeLauncher in the Claude sidebar.",
   "publisher": "claudelauncher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "engines": { "vscode": "^1.80.0" },
   "main": "./extension.js",
-  "activationEvents": ["onUri"]
+  "activationEvents": ["onUri", "onStartupFinished"]
 }
