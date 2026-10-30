@@ -1,0 +1,13 @@
+# Secrets and local state — never commit
+config.json
+pairing-code.txt
+claudelauncher.lock
+logs/
+*.vsix
+.env*
+
+# Personal working notes for Claude Code
+CLAUDE.md
+.claude/
+
+node_modules/

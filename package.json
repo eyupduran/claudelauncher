@@ -1,0 +1,22 @@
+{
+  "name": "claudelauncher",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Open any project and Claude Code session on your Windows PC from your phone, via Telegram",
+  "main": "src/main.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "install-startup": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-startup.ps1",
+    "uninstall-startup": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/uninstall-startup.ps1",
+    "restart": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/restart.ps1",
+    "install-vscode-helper": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-vscode-helper.ps1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eyupduran/claudelauncher.git"
+  }
+}
