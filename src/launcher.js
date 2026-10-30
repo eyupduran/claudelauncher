@@ -57,9 +57,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 /**
  * Projeyi VS Code'da açar, ardından Claude Code panelini
  * (sessionId verilirse o oturumla, verilmezse yeni oturumla) açar.
- * inTab: oturumu sağ panel yerine yeni sekmede aç (sağ paneldeki çalışan oturuma dokunma).
  */
-async function openProject({ cwd, sessionId, codePath, warmDelayMs, coldDelayMs, inTab = false }) {
+async function openProject({ cwd, sessionId, codePath, warmDelayMs, coldDelayMs }) {
   const codeExe = findCodeExe(codePath);
   const wasRunning = await isCodeRunning();
 
@@ -69,13 +68,11 @@ async function openProject({ cwd, sessionId, codePath, warmDelayMs, coldDelayMs,
   // açılıp odak almasını bekliyoruz; yoksa link eski pencereye düşebilir.
   await sleep(wasRunning ? warmDelayMs : coldDelayMs);
 
-  // Yardımcı eklenti kuruluysa oturum sağ panelde açılır. Claude'un kendi linki her zaman
-  // yeni sekmede açar; sağ panel doluysa (inTab) onu kullanıyoruz ki oradaki oturum yerinde kalsın.
-  const sidebar = hasHelper() && !inTab;
-  let uri = sidebar ? 'vscode://claudelauncher.helper/open' : 'vscode://anthropic.claude-code/open';
+  // Yardımcı eklenti kuruluysa oturum sağ panelde, değilse ortadaki sekmede açılır.
+  let uri = hasHelper() ? 'vscode://claudelauncher.helper/open' : 'vscode://anthropic.claude-code/open';
   if (sessionId) uri += `?session=${encodeURIComponent(sessionId)}`;
   await runDetached(codeExe, ['--open-url', uri]);
-  return { wasRunning, inTab: !sidebar };
+  return { wasRunning };
 }
 
 const SCREENSHOT_PS = `
